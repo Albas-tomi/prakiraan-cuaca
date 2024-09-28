@@ -1,4 +1,4 @@
-# Awesome Project Name
+# Awesome Weather App
 
 ## 🚀 Quick Start
 
