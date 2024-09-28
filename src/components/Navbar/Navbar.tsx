@@ -17,7 +17,11 @@ const Navbar = () => {
             </Link>
           </div>
           <div className="dropdown  dropdown-end ">
-            <button className="btn btn-ghost" onClick={() => signOut()}>
+            <button
+              type="button"
+              className="btn btn-ghost"
+              onClick={() => signOut()}
+            >
               <MdLogout className="text-2xl" />
             </button>
           </div>

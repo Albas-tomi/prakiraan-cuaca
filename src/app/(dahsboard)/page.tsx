@@ -89,7 +89,7 @@ export default function Home() {
 
       {/* SECTION CARROUSEL */}
       <section className="carousel carousel-center w-full  rounded-box">
-        {dataWeather.length > 0 ? (
+        {dataWeather.length > 0 && !loading ? (
           dataWeather.map((data: any, idx: number) => (
             <CardWeather key={idx} data={data} />
           ))
