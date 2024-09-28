@@ -43,7 +43,7 @@ export default function Home() {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center h-screen bg-none">
+      <div className="flex items-center bg-white justify-center md:h-[80.5vh]  h-screen bg-none">
         <span className="loading loading-spinner loading-lg"></span>
       </div>
     );

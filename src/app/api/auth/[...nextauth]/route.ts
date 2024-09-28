@@ -7,7 +7,7 @@ const authOptions: NextAuthOptions = {
   session: {
     strategy: "jwt",
   },
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env.NEXT_PUBLIC_NEXTAUTH_SECRET,
   providers: [
     // CREDENTIAL
     CredentialProviders({
@@ -45,8 +45,8 @@ const authOptions: NextAuthOptions = {
 
     // GOOGLE
     GoogleProvider({
-      clientId: process.env.GOOGLE_AUTH_CLIENT_ID as string,
-      clientSecret: process.env.GOOGLE_AUTH_SECRET as string,
+      clientId: process.env.NEXT_PUBLIC_GOOGLE_AUTH_CLIENT_ID as string,
+      clientSecret: process.env.NEXT_PUBLIC_GOOGLE_AUTH_SECRET as string,
     }),
   ],
 
@@ -87,7 +87,7 @@ const authOptions: NextAuthOptions = {
       // buat access token
       const accessToken = jwt.sign(
         token,
-        process.env.NEXTAUTH_SECRET as string
+        process.env.NEXT_PUBLIC_NEXTAUTH_SECRET as string
       );
       session.accessToken = accessToken;
       return session;

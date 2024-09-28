@@ -32,7 +32,7 @@ const CardWeather = ({
       onClick={() => {
         if (setDetailData) setDetailData(data);
       }}
-      className="bg-white/20 mx-3 carousel-item hover:-translate-y-1 transition-all duration-300 flex max-h-96 max-w-80 bg-blend-saturation  rounded-xl shadow-sm p-5 "
+      className="bg-white/30 mx-3 carousel-item hover:-translate-y-1 transition-all duration-300 flex max-h-96 max-w-80 bg-blend-saturation  rounded-xl shadow-sm p-5 "
     >
       <div className="flex flex-col gap-3">
         <div className="flex  flex-col justify-center items-center">

@@ -19,7 +19,7 @@ export const withAuth = (
     if (requireAuth.includes(pathname)) {
       const token = await getToken({
         req,
-        secret: process.env.NEXTAUTH_SECRET,
+        secret: process.env.NEXT_PUBLIC_NEXTAUTH_SECRET,
       });
 
       // JIKA TIDAK ADA TOKEN DAN TIDAK BERADA PADA HALAMAN loginURL maka redirect ke login

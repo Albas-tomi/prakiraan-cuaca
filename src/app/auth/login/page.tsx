@@ -2,7 +2,7 @@
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React, { FormEvent, useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import CustomInput from "@/components/input/CustomInput";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -13,11 +13,7 @@ const LoginPage = () => {
   const { push } = useRouter();
 
   // submit login
-  const handleSumbit = async (event: {
-    preventDefault(): unknown;
-    target: any;
-    event: FormEvent<HTMLFormElement>;
-  }) => {
+  const handleSumbit = async (event: any) => {
     event.preventDefault();
     setLoading(false);
     setError("");
@@ -54,7 +50,7 @@ const LoginPage = () => {
             {error}
           </p>
         )}
-        <form onSubmit={() => handleSumbit} className="w-full  ">
+        <form onSubmit={handleSumbit} className="w-full  ">
           <CustomInput
             type="email"
             placeholder="example@gmail.com"
