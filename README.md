@@ -13,6 +13,7 @@ Get up and running with these simple steps:
 2. **Set up environment**
 
    - Rename `.env.local.EXAMPLE` to `.env.local`
+   - activate `.env.local`
    - Update the credentials:
      ```
      NEXT_PUBLIC_EMAIL=admin123@gmail.com
