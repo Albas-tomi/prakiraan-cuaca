@@ -3,7 +3,7 @@ import CredentialProviders from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import jwt from "jsonwebtoken";
 
-export const authOptions: NextAuthOptions = {
+const authOptions: NextAuthOptions = {
   session: {
     strategy: "jwt",
   },
@@ -63,11 +63,11 @@ export const authOptions: NextAuthOptions = {
 
       if (account?.provider === "google") {
         // data user google'
-        const data = {
-          fullname: user.name,
-          email: user.email,
-          image: user.image,
-        };
+        // const data = {
+        //   fullname: user.name,
+        //   email: user.email,
+        //   image: user.image,
+        // };
       }
       return token;
     },

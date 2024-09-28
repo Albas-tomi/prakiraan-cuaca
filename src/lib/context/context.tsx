@@ -1,9 +1,9 @@
 "use client";
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 const AppContext = createContext<any>(undefined);
 
-export const AppWrapper = ({ children }: any) => {
-  const [searchCity, setSearchCity] = useState("surabaya");
+export const AppWrapper = ({ children }: { children: React.ReactNode }) => {
+  const [searchCity, setSearchCity] = useState("malang");
 
   return (
     <AppContext.Provider
