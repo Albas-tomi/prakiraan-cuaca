@@ -39,12 +39,12 @@ export default function Home() {
     };
     getData();
   }, [searchCity]);
-  const currentWeather = dataWeather[1]?.weather[0]?.main;
+  const currentWeather = dataWeather[0]?.weather[0]?.main;
 
   if (loading) {
     return (
-      <div className="flex items-center bg-white justify-center md:h-[80.5vh]  h-screen bg-none">
-        <span className="loading loading-spinner loading-lg"></span>
+      <div className="flex items-center  justify-center md:h-[80.5vh]  h-screen bg-none">
+        <span className="loading loading-spinner text-white loading-lg"></span>
       </div>
     );
   }

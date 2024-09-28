@@ -3,6 +3,7 @@ import { BiCloud } from "react-icons/bi";
 import Image from "next/image";
 import { WiWindBeaufort0 } from "react-icons/wi";
 import { getWeatherImage } from "@/utils/getWeather";
+import { format, isToday, isTomorrow } from "date-fns";
 
 const CardWeather = ({
   data,
@@ -13,13 +14,6 @@ const CardWeather = ({
 }) => {
   const { clouds, dt_txt, main, weather, wind } = data;
   const date = new Date(dt_txt);
-
-  const formattedDate = date.toLocaleDateString("id-ID", {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
 
   const formattedTime = date.toLocaleTimeString("id-ID", {
     hour: "2-digit",
@@ -32,11 +26,17 @@ const CardWeather = ({
       onClick={() => {
         if (setDetailData) setDetailData(data);
       }}
-      className="bg-white/30 mx-3 carousel-item hover:-translate-y-1 transition-all duration-300 flex max-h-96 max-w-80 bg-blend-saturation  rounded-xl shadow-sm p-5 "
+      className="bg-white/30 mx-3 carousel-item  transition-all duration-300 flex max-h-96 max-w-80 bg-blend-saturation  rounded-xl shadow-sm p-5 "
     >
       <div className="flex flex-col gap-3">
         <div className="flex  flex-col justify-center items-center">
-          <p className="font-bold">{formattedDate}</p>
+          <p className="font-bold">
+            {isToday(date)
+              ? "Today"
+              : isTomorrow(date)
+              ? `Tomorrow ${format(date, "dd MMM yyyy")}`
+              : format(date, "EEEE dd MMM yyyy")}
+          </p>
           <p className="font-medium text-gray-600">{formattedTime}</p>
         </div>
         <div className="flex gap-3 justify-center items-center ">

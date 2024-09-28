@@ -41,7 +41,7 @@ const LoginPage = () => {
 
   return (
     <div className="bg-gradient-to-br from-blue-100 to-blue-300 min-h-screen flex justify-center items-center p-5">
-      <div className="bg-slate-50/50 p-10 rounded  w-full  max-w-[480px]">
+      <div className="bg-slate-50/50 p-6 rounded  w-full  max-w-[480px]">
         <h1 className="text-gray-700 font-bold mb-6 text-center text-2xl ">
           Sign in to your account
         </h1>
@@ -50,7 +50,7 @@ const LoginPage = () => {
             {error}
           </p>
         )}
-        <form onSubmit={handleSumbit} className="w-full  ">
+        <form onSubmit={handleSumbit} className="w-full   ">
           <CustomInput
             type="email"
             placeholder="example@gmail.com"
@@ -84,7 +84,11 @@ const LoginPage = () => {
             disabled={loading}
             className="w-full p-3 bg-gradient-to-bl from-blue-500 to-blue-700 text-white rounded-lg cursor-pointer text-md font-semibold transition-all duration-500 hover:bg-blue-300"
           >
-            {loading ? "Loading..." : "Sign in"}
+            {loading ? (
+              <span className="loading loading-spinner text-white loading-sm"></span>
+            ) : (
+              "Sign in"
+            )}
           </button>
         </form>
         <p className="text-center mt-5 text-base text-gray-700 ">

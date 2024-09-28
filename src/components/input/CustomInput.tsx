@@ -18,7 +18,7 @@ const CustomInput = ({
   id: string;
 }) => {
   return (
-    <div className="">
+    <div className="w-full">
       <label className="form-control w-full ">
         <div className="label">
           <span className="label-text">{label}</span>
