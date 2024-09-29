@@ -1,4 +1,5 @@
 import React from "react";
+import { CustomInputProps } from "./CustomInput.type";
 
 const CustomInput = ({
   type,
@@ -8,15 +9,7 @@ const CustomInput = ({
   name,
   label,
   id,
-}: {
-  type: string;
-  placeholder: string;
-  value?: string;
-  onChange?: (e: any) => void;
-  name: string;
-  label?: string;
-  id: string;
-}) => {
+}: CustomInputProps) => {
   return (
     <div className="w-full">
       <label className="form-control w-full ">

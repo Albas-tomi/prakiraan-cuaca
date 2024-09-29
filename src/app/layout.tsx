@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { AppWrapper } from "@/lib/context/context";
+import { Toaster } from "sonner";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -27,7 +28,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <AppWrapper>{children}</AppWrapper>
+        <title>Weather App</title>
+        <link
+          rel="shortcut icon"
+          href="/images/cloudelogo.png"
+          type="image/x-icon"
+        />
+        <AppWrapper>
+          <Toaster position="top-center" richColors />
+          {children}
+        </AppWrapper>
       </body>
     </html>
   );

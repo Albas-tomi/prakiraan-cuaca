@@ -6,9 +6,9 @@ import React, { useState } from "react";
 import Image from "next/image";
 import CustomInput from "@/components/input/CustomInput";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { toast } from "sonner";
 const LoginPage = () => {
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const { push } = useRouter();
 
@@ -16,7 +16,6 @@ const LoginPage = () => {
   const handleSumbit = async (event: any) => {
     event.preventDefault();
     setLoading(false);
-    setError("");
     try {
       setLoading(true);
       const response = await signIn("credentials", {
@@ -25,12 +24,13 @@ const LoginPage = () => {
         password: event.target.password.value,
       });
       if (response?.ok) {
+        toast.success("Login success");
         push("/");
         setLoading(false);
       }
 
       if (response?.error) {
-        setError(response.error);
+        toast.error(response.error);
         setLoading(false);
       }
     } catch (error) {
@@ -40,16 +40,12 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="bg-gradient-to-br from-blue-100 to-blue-300 min-h-screen flex justify-center items-center p-5">
+    <div className="bg-gradient-to-br from-blue-100 to-blue-200 min-h-screen flex justify-center items-center p-5">
       <div className="bg-slate-50/50 p-6 rounded  w-full  max-w-[480px]">
         <h1 className="text-gray-700 font-bold mb-6 text-center text-2xl ">
           Sign in to your account
         </h1>
-        {error && (
-          <p className="text-center relative w-full justify-between  text-red-500 ">
-            {error}
-          </p>
-        )}
+
         <form onSubmit={handleSumbit} className="w-full   ">
           <CustomInput
             type="email"
@@ -82,7 +78,7 @@ const LoginPage = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full p-3 bg-gradient-to-bl from-blue-500 to-blue-700 text-white rounded-lg cursor-pointer text-md font-semibold transition-all duration-500 hover:bg-blue-300"
+            className="w-full p-3 bg-gradient-to-br from-blue-300 to-blue-500 text-white rounded-lg cursor-pointer text-md font-semibold transition-all duration-500 hover:bg-blue-300"
           >
             {loading ? (
               <span className="loading loading-spinner text-white loading-sm"></span>
